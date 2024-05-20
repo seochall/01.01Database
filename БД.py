@@ -220,13 +220,17 @@ def openprofile(): #открытие окна профиля
     myResult = myCursor.fetchall()
     for i in myResult:
         if profilelogin == str(i[1]) and profilepassword == str(i[2]):
+            global profilephone
+            global profileID
+            profilephone=str(i[3])
+            profileID=str(i[0])
+
+    for i in myResult:
+        if profileID == str(i[0]) :
             ui2.s_label_1.setText(str(i[1]))
             ui2.s_label_2.setText(str(i[2]))
             ui2.s_label_3.setText(str(i[3]))
             ui2.s_label_4.setText(str(i[4]))
-            global profilephone
-            profilephone=str(i[3])
-
 
 
 
@@ -245,7 +249,7 @@ def openprofile(): #открытие окна профиля
         ui2.home_pushButton.setVisible(False)
 
         for i in myResult:
-            if profilelogin == str(i[1]) and profilepassword == str(i[2]):
+            if profileID == str(i[0]) :
                 ui2.prof_lineEdit.setText(str(i[1]))
                 ui2.prof_lineEdit_2.setText(str(i[2]))
                 ui2.prof_lineEdit_3.setText(str(i[3]))
@@ -268,26 +272,16 @@ def openprofile(): #открытие окна профиля
         for d in myResult2:
             ph.append(d[0])                         #ВОТ ПОСЛЕ ЭТОГО МОМЕНТА НЕ РАБОТАЕТ:(((((
 
-        # if profilelogin!=str(ui2.prof_lineEdit):
-        #     if profilelogin in lg:
+        # if profilelogin!=str(ui2.prof_lineEdit.text()):
+        #     if str(ui2.prof_lineEdit) in lg:
         #         ui2.errorprofile_1.setVisible(True)
         #         ui2.errorprofile_2.setVisible(False)
-        #     else:
-        #         login=str(ui2.prof_lineEdit)
-        #         command = "INSERT INTO users (login) VALUES (?)"
-        #         myCursor.execute(command, (login))
-        #         myConnection.commit()
         #
-        #
-        # elif profilephone!=str(ui2.prof_lineEdit_3):
-        #     if profilephone in ph:
+        # elif profilephone!=str(ui2.prof_lineEdit_3.text()):
+        #     if str(ui2.prof_lineEdit_3) in ph:
         #         ui2.errorprofile_1.setVisible(False)
         #         ui2.errorprofile_2.setVisible(True)
-        #     else:
-        #         phone=str(ui2.prof_lineEdit_3)
-        #         command = "INSERT INTO users (phone) VALUES (?)"
-        #         myCursor.execute(command, (phone))
-        #         myConnection.commit()
+        #
         # else:
             login = str(ui2.prof_lineEdit.text())
             password = str(ui2.prof_lineEdit_2.text())
@@ -321,8 +315,6 @@ def openprofile(): #открытие окна профиля
         #         ui2.prof_lineEdit_2.setText(str(i[2]))
         #         ui2.prof_lineEdit_3.setText(str(i[3]))
         #         ui2.prof_lineEdit_4.setText(str(i[4]))
-
-
 
 
 
