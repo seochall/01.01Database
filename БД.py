@@ -247,6 +247,7 @@ def openprofile(): #открытие окна профиля
         ui2.prof_lineEdit_4.setVisible(True)
         ui2.changesave_pushButton.setVisible(True)
         ui2.home_pushButton.setVisible(False)
+        ui2.exit_pushButton.setVisible(False)
 
         for i in myResult:
             if profileID == str(i[0]) :
@@ -311,6 +312,8 @@ def openprofile(): #открытие окна профиля
             ui2.prof_lineEdit_4.setVisible(False)
             ui2.changesave_pushButton.setVisible(False)
             ui2.home_pushButton.setVisible(True)
+            ui2.exit_pushButton.setVisible(True)
+
 
         # for i in myResult:
         #     if profileID == str(i[0]):
